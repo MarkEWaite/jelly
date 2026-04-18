@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.jenkins-ci</groupId>
     <artifactId>jenkins</artifactId>
-    <version>1.112</version>
+    <version>1.142</version>
     <relativePath />
   </parent>
 
@@ -41,10 +41,10 @@
   </distributionManagement>
 
   <properties>
-    <revision>1.1-jenkins-20240331</revision>
+    <revision>1.1-jenkins-20250732</revision>
     <changelist>-SNAPSHOT</changelist>
     <gitHubRepo>jenkinsci/jelly</gitHubRepo>
-    <ant.version>1.10.14</ant.version>
+    <ant.version>1.10.17</ant.version>
     <spotbugs.skip>true</spotbugs.skip>
     <maven.site.deploy.skip>true</maven.site.deploy.skip>
   </properties>
@@ -54,7 +54,7 @@
       <dependency>
         <groupId>commons-beanutils</groupId>
         <artifactId>commons-beanutils</artifactId>
-        <version>1.9.4</version>
+        <version>1.11.0</version>
       </dependency>
       <dependency>
         <groupId>commons-lang</groupId>
@@ -79,11 +79,6 @@
         <version>2.0.0</version>
       </dependency>
       <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.10.2</version>
-      </dependency>
-      <dependency>
         <groupId>org.apache.ant</groupId>
         <artifactId>ant</artifactId>
         <version>${ant.version}</version>
@@ -101,7 +96,7 @@
       <dependency>
         <groupId>org.dom4j</groupId>
         <artifactId>dom4j</artifactId>
-        <version>2.1.4</version>
+        <version>2.2.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -137,8 +132,6 @@
       <plugin>
         <groupId>io.jenkins.tools.maven</groupId>
         <artifactId>jellydoc-maven-plugin</artifactId>
-        <!-- TODO manage in parent POM -->
-        <version>137.v803fea_a_fb_c75</version>
       </plugin>
     </plugins>
   </reporting>

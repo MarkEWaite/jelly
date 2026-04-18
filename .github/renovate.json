@@ -1,21 +1,33 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    ":semanticCommitsDisabled"
+    "github>jenkinsci/renovate-config"
   ],
-  "enabledManagers": ["regex"],
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["src/site/site.xml"],
-      "matchStrings": ["<version>(?<currentValue>.*?)<\/version>"],
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/src/site/site.xml/"
+      ],
+      "matchStrings": [
+        "<version>(?<currentValue>.*?)</version>"
+      ],
       "depNameTemplate": "org.apache.maven.skins:maven-fluido-skin",
       "datasourceTemplate": "maven"
     }
   ],
-  "labels": [
-    "dependencies"
-  ],
-  "rebaseWhen": "conflicted",
-  "schedule": ["on the first day of the month"]
+  "packageRules": [
+    {
+      "description": "Ignore 1.2.0-atlassian-2",
+      "matchManagers": [
+        "maven"
+      ],
+      "enabled": false,
+      "matchPackageNames": [
+        "jakarta.servlet:jakarta.servlet-api",
+        "jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api",
+        "jaxen:jaxen"
+      ]
+    }
+  ]
 }
